@@ -256,7 +256,7 @@ Por fim, foi gerado o arquivo **api-dataset.csv**, contendo o nome dos arquivos 
 
 + [ ] Unir os datasets em apenas um.
 
-Abaixo está disponibilizado o python utilizado para realizar a união dos arquivos. Houve o cuidado de remover os espaços em brancos desnecessários no nome dos arquivos, presentes na planilha, que num primeiro momento estavam impedindo a união das chaves.
+Abaixo está disponibilizado o python utilizado para realizar a união dos arquivos. Houve o cuidado de remover os espaços em brancos desnecessários no nome dos mesmos, que num primeiro momento estavam impedindo a união das chaves.
 
 ```python
 import pandas as pd
