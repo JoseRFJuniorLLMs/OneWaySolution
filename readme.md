@@ -278,7 +278,7 @@ Mesmo com esse esforço, apenas uma chave obteve sucesso na união das informaç
 + [ ] Indexar todos os arquivos na Azure.
 + [ ] Melhorar a qualidade da planilha insumo.
 
-Ao tentar unir os datasets surgiram alguns problemas. Nota-se que apenas um arquivos do total (1/50) obteve sucesso na união dos 2 _datasets_, os demais 49 arquivos não estavam presentes na aba **COLUNAS A APRESENTAR** da planilha insumo. Sugere-se avaliar a qualidade da planilha disponibilizada.
+Ao tentar unir os datasets surgiram alguns problemas. Nota-se que apenas um arquivo do total (1/50) obteve sucesso na união dos 2 _datasets_, os demais 49 arquivos não estavam presentes na aba **COLUNAS A APRESENTAR** da planilha insumo. Sugere-se avaliar a qualidade da planilha disponibilizada.
 
 Há também a possibilidade de erros nos códigos python, onde alguma função aparente estar funcionando corretamenta, mas que não esteja trazendo o resultado desejado. Sugere-se a revisão dos códigos python.
 
