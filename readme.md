@@ -190,7 +190,7 @@ with open('api-text.txt','w') as fl:
   fl.write(dumps(results, indent = 2))
 ```
 
-Devido a algumas limitações apenas 50 documentos puderam ser indexados, consequentemente o arquivo **api-text.txt** resultante do código acima possui um lista com essa quantidade de objetos _jsons_.
+Devido a algumas limitações apenas 50 documentos puderam ser indexados, consequentemente o arquivo [api-text.txt](./api-text.txt) resultante do código acima possui um lista com essa quantidade de objetos _jsons_.
 
 Cada objeto contêm: o nome dos arquivos e suas respectivas palavras-chave, além dos campos **@odata.context** e **@search.score**, que vêm por padrão.
 
@@ -221,7 +221,7 @@ xls.head()
 xls.to_csv('xls-dataset.csv', sep = ';', index = True)
 ```
 
-O arquivo **xls-dataset.csv** contêm as seguintes colunas: Expediente, Nome do Arquivo, Vara, Foro, Comarca, Advogado, Centro de Custo, Unidade Subsidio, Vr. Causa, Vr. Causa Atual, Grupo de Assunto, Acao, iCodDocumento. Provenientes das abas: **REL. DOCUMENTOS COPIADOS** e **COLUNAS A APRESENTAR**.
+O arquivo [xls-dataset.csv](./xls-dataset.csv) contêm as seguintes colunas: Expediente, Nome do Arquivo, Vara, Foro, Comarca, Advogado, Centro de Custo, Unidade Subsidio, Vr. Causa, Vr. Causa Atual, Grupo de Assunto, Acao, iCodDocumento. Provenientes das abas: **REL. DOCUMENTOS COPIADOS** e **COLUNAS A APRESENTAR**.
 
 ### API
 
@@ -250,7 +250,7 @@ dataset.to_csv('api-dataset.csv', sep = ';', index = False)
 
 Percebe-se que os documentos encontravam-se dentro da chave **value**, e também que as colunas **metadata_storage_name** e **keyphrases** foram filtradas e renomeadas para **Nome do Arquivo** e **Palavras Chaves**, respectivamente.
 
-Por fim, foi gerado o arquivo **api-dataset.csv**, contendo o nome dos arquivos e as palavras-chave unidas em uma única cadeia de caracteres (_string_).
+Por fim, foi gerado o arquivo [api-dataset.csv](./api-dataset.csv), contendo o nome dos arquivos e as palavras-chave unidas em uma única cadeia de caracteres (_string_).
 
 ### União
 
@@ -268,7 +268,7 @@ dataset = pd.merge(api, xls, how = 'left', on='Nome do Arquivo')
 dataset.to_csv('dataset.csv', sep = ';', index = False)
 ```
 
-Mesmo com esse esforço, apenas uma chave obteve sucesso na união das informaçoes, o resultado do processo pode ser conferido no arquivo **dataset.csv**.
+Mesmo com esse esforço, apenas uma chave obteve sucesso na união das informaçoes, o resultado do processo pode ser conferido no arquivo [dataset.csv](./dataset.csv).
 
 ---
 
