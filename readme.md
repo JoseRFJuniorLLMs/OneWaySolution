@@ -176,6 +176,8 @@ Para este trabalho considerou-se necessário apenas o **nome dos arquivos**, cam
 
 Segue abaixo o código python utilizado:
 
+[crawler.py](./crawler.py)
+
 ```python
 from requests import get
 from json import dumps
@@ -206,6 +208,8 @@ Da forma como foi disponibilizada, a planilha não possui formato de conjunto de
 
 Tendo isto em vista, foi desenvolvido código, também em python, capaz de manipular um arquivo xls e transformá-lo em formato csv, agregando as informações consideradas necessárias de cada aba da planilha insumo. Vide abaixo:
 
+[xls2dataset.py](./xls2dataset.py)
+
 ```python
 import pandas as pd
 
@@ -228,6 +232,8 @@ O arquivo [xls-dataset.csv](./xls-dataset.csv) contêm as seguintes colunas: Exp
 + [x] Transformar palavras-chave em dataset.
 
 Assim como no caso da planilha, optou-se por alterar o formato original do resultado da consulta à _API_. Para isso o algoritmo abaixo foi desenvolvido a fim de transformar a lista de objetos _jsons_ em um _dataset_ estruturado. Vide código python:
+
+[api2dataset.py](./api2dataset.py)
 
 ```python
 import pandas as pd
@@ -257,6 +263,8 @@ Por fim, foi gerado o arquivo [api-dataset.csv](./api-dataset.csv), contendo o n
 + [ ] Unir os datasets em apenas um.
 
 Abaixo está disponibilizado o python utilizado para realizar a união dos arquivos. Houve o cuidado de remover os espaços em brancos desnecessários no nome dos mesmos, que num primeiro momento estavam impedindo a união das chaves.
+
+[merge_datasets.py](./merge_datasets.py)
 
 ```python
 import pandas as pd
