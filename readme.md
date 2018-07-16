@@ -150,7 +150,7 @@ Tendo isto em vista, foram elencados os seguintes objetivos:
 + [ ] Algoritmo de classificação.
   + [ ] Escolher entre Acao ou Grupo de Assunto.
   + [ ] Treinar o algoritmo com os pdf.
-  + [ ] Utilizar os arquivos zip como dados de treino.
+  + [ ] Utilizar os arquivos zip como dados de teste.
 
 ---
 
