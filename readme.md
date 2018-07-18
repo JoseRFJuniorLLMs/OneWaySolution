@@ -47,9 +47,7 @@
 + Conteúdo: 2127 itens, PDFs e ZIPs
 + Tamanho: 3,5 GB
 
-**Planilha:**
-
-[Planilha](./03_spreadsheets/caixa.xls)
+[Planilha](./01_source/caixa.xls)
 
 1. REL. EXPEDIENTES ELENCADOS (1238 linhas)
    <ol type = 'A'>
