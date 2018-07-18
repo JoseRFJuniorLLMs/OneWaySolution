@@ -49,6 +49,8 @@
 
 **Planilha:**
 
+[Planilha](./03_spreadsheets/caixa.xls)
+
 1. REL. EXPEDIENTES ELENCADOS (1238 linhas)
    <ol type = 'A'>
      <li>No header</li>
@@ -170,31 +172,19 @@ Todo processo foi executado utilizando a plataforma, desde o armazenamento dos d
 
 O ambiente de nuvem também possui um módulo de pesquisa, este permite realizar consultas à base dos dados indexados. O módulo disponibiliza uma _API_, permitindo acessar o serviço de fora da plataforma, para isto basta realizar uma requisição _REST_ à _API_ e obter o resultado da consulta.
 
-Optou-se por utilizar python para a criação de um agente capaz de montar a requisição, enviá-la à API, receber o resultado da consulta e gravá-lo em um arquivo, para que este pudesse ser utilizados por outros programas.
+Para este trabalho considerou-se necessário apenas o **nome dos arquivos**, para será utilizado como chave para incrementar a planilha disponibilizada como insumo; e as **palavras-chave**, para auxiliar na classificação dos documentos.
 
-Para este trabalho considerou-se necessário apenas o **nome dos arquivos**, campo que será utilizado como chave para incrementar a planilha disponibilizada como insumo; e as **palavras-chave**, que auxiliarão na classificação dos documentos.
+Optou-se por utilizar python para a criação de um agente capaz de montar a requisição, enviá-la à API, receber o resultado da consulta e gravá-lo em um arquivo, para que este pudesse ser utilizados por outros programas.
 
 Segue abaixo o código python utilizado:
 
-[crawler.py](./crawler.py)
+[api.py](./02_azure_search/api.py)
 
-```python
-from requests import get
-from json import dumps
-url = 'https://demoowshq.search.windows.net/indexes/teste/docs?api-version=2017-11-11'
-headers = {"api-key":'********************************'} 
-params = {"$select":'metadata_storage_name,keyphrases'}
+Devido a algumas limitações apenas 50 documentos puderam ser indexados, consequentemente o arquivo [api-response.txt](./02_azure_search/api-response.txt) resultante do código acima possui um lista com essa quantidade de objetos _jsons_.
 
-response = get(url, headers = headers, params = params)
-results = response.json()
+Cada objeto contêm: **metadata_storage_name** (nome do arquivo) e **keyphrases** (palavras-chave), além do campo **@search.score**, que vêm por padrão.
 
-with open('api-text.txt','w') as fl:
-  fl.write(dumps(results, indent = 2))
-```
-
-Devido a algumas limitações apenas 50 documentos puderam ser indexados, consequentemente o arquivo [api-text.txt](./api-text.txt) resultante do código acima possui um lista com essa quantidade de objetos _jsons_.
-
-Cada objeto contêm: o nome dos arquivos e suas respectivas palavras-chave, além dos campos **@odata.context** e **@search.score**, que vêm por padrão.
+Por fim, a fim de transformar a lista de objetos _jsons_ em um _dataset_ estruturado, optou-se por alterar o formato original do resultado da consulta à _API_, foi gerado o arquivo [api-dataset.csv](./02_azure_search/api-dataset.csv), contendo o nome dos arquivos e as palavras-chave unidas em uma única cadeia de caracteres (_string_).
 
 ---
 
@@ -208,55 +198,20 @@ Da forma como foi disponibilizada, a planilha não possui formato de conjunto de
 
 Tendo isto em vista, foi desenvolvido código, também em python, capaz de manipular um arquivo xls e transformá-lo em formato csv, agregando as informações consideradas necessárias de cada aba da planilha insumo. Vide abaixo:
 
-[xls2dataset.py](./xls2dataset.py)
+[xls2dataset.py](./03_spreadsheets/xls.py)
 
 ```python
 import pandas as pd
+xls2 = pd.read_excel('../01_source/caixa.xls', sheet_name = 'REL. DOCUMENTOS COPIADOS')
+xls3 = pd.read_excel('../01_source/caixa.xls', sheet_name = 'COLUNAS A APRESENTAR')
 
-xls2 = pd.read_excel('caixa.xls', sheet_name = 'REL. DOCUMENTOS COPIADOS')
-xls3 = pd.read_excel('caixa.xls', sheet_name = 'COLUNAS A APRESENTAR')
-xls3.head()
-
-xls = pd.merge(xls3, xls2)
+xls = pd.merge(xls2, xls3)
 xls.drop_duplicates(subset = 'Expediente', keep = False, inplace = True)
-xls.set_index(['Expediente', 'Nome do Arquivo'], inplace = True)
-xls.head()
 
 xls.to_csv('xls-dataset.csv', sep = ';', index = True)
 ```
 
-O arquivo [xls-dataset.csv](./xls-dataset.csv) contêm as seguintes colunas: Expediente, Nome do Arquivo, Vara, Foro, Comarca, Advogado, Centro de Custo, Unidade Subsidio, Vr. Causa, Vr. Causa Atual, Grupo de Assunto, Acao, iCodDocumento. Provenientes das abas: **REL. DOCUMENTOS COPIADOS** e **COLUNAS A APRESENTAR**.
-
-### API
-
-+ [x] Transformar palavras-chave em dataset.
-
-Assim como no caso da planilha, optou-se por alterar o formato original do resultado da consulta à _API_. Para isso o algoritmo abaixo foi desenvolvido a fim de transformar a lista de objetos _jsons_ em um _dataset_ estruturado. Vide código python:
-
-[api2dataset.py](./api2dataset.py)
-
-```python
-import pandas as pd
-from json import loads
-
-with open('api-text.txt') as fl:
-  data = loads(fl.read())["value"]
-
-wanted_keys = ['metadata_storage_name', 'keyphrases']
-
-data = [{k: data[i][k] for k in wanted_keys} for i in range(len(data))]
-
-for i in range(len(data)):
-  data[i]['keyphrases'] = ' '.join(data[i]['keyphrases'])
-
-dataset = pd.DataFrame.from_dict(data)[wanted_keys]
-dataset.columns = ['Nome do Arquivo', 'Palavras Chaves']
-dataset.to_csv('api-dataset.csv', sep = ';', index = False)
-```
-
-Percebe-se que os documentos encontravam-se dentro da chave **value**, e também que as colunas **metadata_storage_name** e **keyphrases** foram filtradas e renomeadas para **Nome do Arquivo** e **Palavras Chaves**, respectivamente.
-
-Por fim, foi gerado o arquivo [api-dataset.csv](./api-dataset.csv), contendo o nome dos arquivos e as palavras-chave unidas em uma única cadeia de caracteres (_string_).
+O arquivo [xls-dataset.csv](./03_spreadsheets/xls-dataset.csv) contêm as seguintes colunas: Expediente, Nome do Arquivo, Vara, Foro, Comarca, Advogado, Centro de Custo, Unidade Subsidio, Vr. Causa, Vr. Causa Atual, Grupo de Assunto, Acao, iCodDocumento. Provenientes das abas: **REL. DOCUMENTOS COPIADOS** e **COLUNAS A APRESENTAR**.
 
 ### União
 

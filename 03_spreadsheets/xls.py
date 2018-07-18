@@ -1,6 +1,6 @@
 #%%
 import os
-os.chdir('./02_spreadsheets')
+os.chdir('./01_source/')
 
 #%%
 import pandas as pd
