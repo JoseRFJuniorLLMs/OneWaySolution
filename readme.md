@@ -235,15 +235,15 @@ Mesmo com esse esforço, apenas uma chave obteve sucesso na união das informaç
 
 ## Impedimentos
 
-+ [ ] Buscar _bugs_ nos códigos python.
++ [x] Buscar _bugs_ nos códigos python.
 + [ ] Indexar todos os arquivos na Azure.
 + [ ] Melhorar a qualidade da planilha insumo.
 
 Ao tentar unir os datasets surgiram alguns problemas. Nota-se que apenas um arquivo do total (1/50) obteve sucesso na união dos 2 _datasets_, os demais 49 arquivos não estavam presentes na aba **COLUNAS A APRESENTAR** da planilha insumo. Sugere-se avaliar a qualidade da planilha disponibilizada.
 
-Há também a possibilidade de erros nos códigos python, onde alguma função aparente estar funcionando corretamente, mas que não esteja trazendo o resultado desejado. Sugere-se a revisão dos códigos python.
-
 Vale ressaltar a limitação na hora de indexar os arquivos no Azure Search, e que nem todos os documentos disponibilizados foram indexados. Sugere-se a indexação de todos os arquivos na Azure.
+
+Os arquivos python foram revisados e testados novamente. Numa segunda análise alguns ajustes foram feitos, mas nenhum grande _bug_ foi encontrado. As funções aparentam estar funcionando corretamente.
 
 ---
 
@@ -253,6 +253,7 @@ Vale ressaltar a limitação na hora de indexar os arquivos no Azure Search, e q
 1. <https://docs.microsoft.com/pt-br/azure/search/>
 1. <https://docs.microsoft.com/en-us/rest/api/searchservice/>
 1. <https://pandas.pydata.org/>
+1. <http://scikit-learn.org/stable/>
 
 ---
 
