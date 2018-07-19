@@ -1,6 +1,6 @@
 library(e1071)
 
-caixa = read.csv('dataset.csv',sep=';',header=T)
+caixa = read.csv('../04_merged_content/dataset.csv',sep=';',header=T)
 caixa <- caixa[c('Vara',
 'Foro',
 'Comarca',
