@@ -170,7 +170,7 @@ Todo processo foi executado utilizando a plataforma, desde o armazenamento dos d
 
 O ambiente de nuvem também possui um módulo de pesquisa, este permite realizar consultas à base dos dados indexados. O módulo disponibiliza uma _API_, permitindo acessar o serviço de fora da plataforma, para isto basta realizar uma requisição _REST_ à _API_ e obter o resultado da consulta.
 
-Para este trabalho considerou-se necessário apenas o **nome dos arquivos**, para será utilizado como chave para incrementar a planilha disponibilizada como insumo; e as **palavras-chave**, para auxiliar na classificação dos documentos.
+Para este trabalho considerou-se necessário apenas o **nome dos arquivos**, que será utilizado como chave para incrementar a planilha disponibilizada como insumo; e as **palavras-chave**, para auxiliar na classificação dos documentos.
 
 Optou-se por utilizar python para a criação de um agente capaz de montar a requisição, enviá-la à API, receber o resultado da consulta e gravá-lo em um arquivo, para que este pudesse ser utilizados por outros programas.
 
@@ -182,7 +182,7 @@ Devido a algumas limitações apenas 50 documentos puderam ser indexados, conseq
 
 Cada objeto contêm: **metadata_storage_name** (nome do arquivo) e **keyphrases** (palavras-chave), além do campo **@search.score**, que vêm por padrão.
 
-Por fim, a fim de transformar a lista de objetos _jsons_ em um _dataset_ estruturado, optou-se por alterar o formato original do resultado da consulta à _API_, foi gerado o arquivo [api-dataset.csv](./02_azure_search/api-dataset.csv), contendo o nome dos arquivos e as palavras-chave unidas em uma única cadeia de caracteres (_string_).
+Por fim, no intuito de transformar a lista de objetos _jsons_ em um _dataset_ estruturado, optou-se por alterar o formato original do resultado da consulta, foi gerado o arquivo [api-dataset.csv](./02_azure_search/api-dataset.csv), contendo o nome dos arquivos e as palavras-chave unidas em uma única cadeia de caracteres (_string_).
 
 ---
 
