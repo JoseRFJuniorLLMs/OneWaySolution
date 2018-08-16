@@ -1,3 +1,4 @@
 02_azure_search/config.json
 __pycache__/
 .ipynb_checkpoints/
+.vscode/
