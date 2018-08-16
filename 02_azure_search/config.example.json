@@ -2,7 +2,7 @@
   "SERVICE" : "demoowshq",
   "INDEX"   : "teste",
   "VERSION" : "2017-11-11",
-  "KEY"     : "FB2F6A27BCEB99C468EF84D9A682E45B",
+  "KEY"     : "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
   "QUERY"   : {
     "select":"metadata_storage_name,keyphrases",
     "top": "1000",
