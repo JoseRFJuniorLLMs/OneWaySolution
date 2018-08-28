@@ -70,10 +70,3 @@ clf.score(vec_test, y_test)
 
 print(metrics.classification_report(y_test, predictions))
 print(metrics.confusion_matrix(y_test, predictions))
-
-
-# In[10]:
-
-
-cls = KMeans(n_clusters=3, random_state=42).fit(vec_train)
-
