@@ -11,9 +11,9 @@ Overview
 Plan
 ---
 
-1. Extract words from documents
-1. Prepare data to ML
-1. Build ML Model
+1. Extract words
+1. Prepare data
+1. Build ML model
 1. Classify document
 1. Save classification
 1. Retrieval classification
