@@ -11,7 +11,7 @@ Overview
 Plan
 ---
 
-1. [x] [Data exploration](./01_source/Data Exploration.ipynb "")
+1. [x] [Data exploration](./01_source/Data%20Exploration.ipynb "")
 1. [ ] Extract words
 1. [ ] Prepare data
 1. [ ] Build ML model
