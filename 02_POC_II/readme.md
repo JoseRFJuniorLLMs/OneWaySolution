@@ -11,12 +11,13 @@ Overview
 Plan
 ---
 
-1. Extract words
-1. Prepare data
-1. Build ML model
-1. Classify document
-1. Save classification
-1. Retrieval classification
-1. Correct classification
-1. Retrain model
-1. Check model accuracy
+1. [x] Data exploration
+1. [ ] Extract words
+1. [ ] Prepare data
+1. [ ] Build ML model
+1. [ ] Classify document
+1. [ ] Save classification
+1. [ ] Retrieval classification
+1. [ ] Correct classification
+1. [ ] Retrain model
+1. [ ] Check model accuracy
