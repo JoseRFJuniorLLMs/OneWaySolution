@@ -12,7 +12,7 @@ Plan
 ---
 
 1. [x] [Data exploration](./01_source/Data_Exploration.ipynb "")
-1. [ ] Extract words
+1. [x] [Extract words](./02_azure/Azure_Search.ipynb)
 1. [ ] Prepare data
 1. [ ] Build ML model
 1. [ ] Classify document
