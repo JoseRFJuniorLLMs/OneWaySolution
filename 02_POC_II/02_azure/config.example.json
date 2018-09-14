@@ -1,0 +1,19 @@
+{
+  "SERVICE" : "demoowshq",
+  "INDEX"   : "teste",
+  "VERSION" : "2017-11-11",
+  "KEY"     : "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+  "QUERY"   : {
+    "select":"metadata_storage_name,keyphrases",
+    "top": "1000",
+    "count": "true"
+  },
+  "OUTPUT"  : "api-response.txt",
+  "FIELDS"  : ["keyphrases"],
+  "DATASET" : "api-dataset.csv",
+  "COLUMNS" : [
+    "",
+    "Palavras-chave",
+    "Nome do Arquivo"
+    ]
+}
