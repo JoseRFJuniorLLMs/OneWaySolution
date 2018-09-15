@@ -11,9 +11,9 @@ Overview
 Plan
 ---
 
-1. [x] [Data exploration](./01_source/Data_Exploration.ipynb "")
-1. [x] [Extract words](./02_azure/Azure_Search.ipynb)
-1. [ ] Prepare data
+1. [x] [Data exploration](./01_source/Data_Exploration.ipynb)
+1. [x] [Extract words](./02_pdf_extration/PDF_Extraction.ipynb)
+1. [x] [Prepare data](./03_data_preparation/Merge Content.ipynb)
 1. [ ] Build ML model
 1. [ ] Classify document
 1. [ ] Save classification
