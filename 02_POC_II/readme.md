@@ -15,9 +15,9 @@ Plan
 1. [x] [Extract words](./02_pdf_extration/PDF_Extraction.ipynb)
 1. [x] [Prepare data](./03_data_preparation/Merge_Content.ipynb)
 1. [x] [Build ML model](./04_machine_learning/Machine_Learning.ipynb)
-1. [ ] Classify document
-1. [ ] Save classification
-1. [ ] Retrieval classification
-1. [ ] Correct classification
-1. [ ] Retrain model
-1. [ ] Check model accuracy
+1. [x] [Classify document](./05_single_classification/Functions.ipynb)
+1. [x] [Save classification](./05_single_classification/Functions.ipynb)
+1. [x] [Retrieval classification](./05_single_classification/Functions.ipynb)
+1. [x] [Correct classification](./05_single_classification/Functions.ipynb)
+1. [x] [Retrain model](./05_single_classification/Functions.ipynb)
+1. [x] [Check model accuracy](./05_single_classification/Functions.ipynb)
